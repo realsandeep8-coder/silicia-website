@@ -1,86 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Silicia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Silicia Nexus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
+:root {
+  --neon: #00f7ff;
+  --pink: #ff2cdf;
+  --bg: #05070d;
+}
 
-    body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    .container {
-      text-align: center;
-      padding: 40px;
-      max-width: 700px;
-    }
+body {
+  background: radial-gradient(circle at top, #0b1220, #02030a);
+  color: white;
+  overflow-x: hidden;
+}
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+}
 
-    h1 span {
-      color: #00e5ff;
-    }
+nav h1 {
+  font-size: 1.6rem;
+  color: var(--neon);
+}
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: #dcdcdc;
-    }
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 25px;
+  transition: 0.3s;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
-      background: #00e5ff;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 30px;
-      transition: 0.3s ease;
-    }
+nav a:hover {
+  color: var(--neon);
+}
 
-    .btn:hover {
-      background: white;
-      transform: scale(1.05);
-    }
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 120px 80px;
+}
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-  </style>
+.hero h2 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+.hero span {
+  background: linear-gradient(90deg, var(--neon), var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  margin: 25px 0;
+  color: #bbb;
+  max-width: 500px;
+}
+
+.hero button {
+  padding: 14px 36px;
+  border: none;
+  border-radius: 40px;
+  font-size: 1rem;
+  background: linear-gradient(90deg, var(--neon), var(--pink));
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ===== CAPSULE MARKET ===== */
+.market {
+  padding: 100px 80px;
+}
+
+.market h3 {
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.capsule {
+  position: relative;
+  height: 220px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(25px);
+  padding: 30px;
+  transition: 0.4s;
+  overflow: hidden;
+}
+
+.capsule::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+}
+
+.capsule:hover::before {
+  opacity: 1;
+  animation: shine 1.2s;
+}
+
+@keyframes shine {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+.capsule h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.capsule p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.capsule span {
+  position: absolute;
+  bottom: 25px;
+  font-size: 0.85rem;
+  color: var(--neon);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+  font-size: 0.9rem;
+}
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Welcome to <span>Silicia</span> 🚀</h1>
-    <p>
-      Silicia is a modern digital brand.<br>
-      Website is live using GitHub Pages.
-    </p>
-
-    <a href="#" class="btn">Get Started</a>
-
-    <footer>
-      <p>© 2026 Silicia. All rights reserved.</p>
-    </footer>
+<nav>
+  <h1>Silicia Nexus</h1>
+  <div>
+    <a href="#">Market</a>
+    <a href="#">Sell</a>
+    <a href="#">Buy</a>
+    <a href="#">Login</a>
   </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <h2>
+      The <span>Future Marketplace</span><br>
+      Where Anything Exists
+    </h2>
+    <p>
+      Silicia Nexus is not a website.  
+      It’s a digital universe where products, services and ideas collide.
+    </p>
+    <button>Enter Marketplace</button>
+  </div>
+</section>
+
+<section class="market">
+  <h3>Live Capsules</h3>
+
+  <div class="grid">
+    <div class="capsule">
+      <h4>Digital Assets</h4>
+      <p>Templates, code, AI tools, designs.</p>
+      <span>Explore →</span>
+    </div>
+
+    <div class="capsule">
+      <h4>Physical Products</h4>
+      <p>Sell real-world items globally.</p>
+      <span>Trade →</span>
+    </div>
+
+    <div class="capsule">
+      <h4>Services</h4>
+      <p>Freelance, consulting, solutions.</p>
+      <span>Connect →</span>
+    </div>
+
+    <div class="capsule">
+      <h4>Ideas & Startups</h4>
+      <p>Pitch, fund or collaborate.</p>
+      <span>Launch →</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Silicia Nexus — Designed Beyond Reality
+</footer>
 
 </body>
 </html>
