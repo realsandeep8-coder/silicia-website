@@ -1,11 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Silicia</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Silicia — Official Website</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f9fafb, #eef2ff);
+      color: #111827;
+    }
+
+    header {
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #4f46e5;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #4f46e5;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+    }
+
+    .hero-text {
+      max-width: 520px;
+    }
+
+    .hero-text h1 {
+      font-size: 52px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: #4b5563;
+      margin-bottom: 30px;
+    }
+
+    .hero-text button {
+      padding: 14px 32px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background: #4f46e5;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero-text button:hover {
+      background: #4338ca;
+    }
+
+    .hero-img img {
+      width: 420px;
+      max-width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .hero-img {
+        margin-top: 40px;
+      }
+
+      header {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Welcome to Silicia 🚀</h1>
-  <p>Website is live via GitHub Pages.</p>
+
+  <header>
+    <div class="logo">Silicia</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Build Your Brand with Silicia 🚀</h1>
+      <p>
+        Modern, fast and beautiful digital solutions
+        to grow your business online.
+      </p>
+      <button>Get Started</button>
+    </div>
+
+    <div class="hero-img">
+      <img src="https://illustrations.popsy.co/white/web-design.svg" alt="Website Illustration">
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Silicia. All rights reserved.
+  </footer>
+
 </body>
 </html>
+
