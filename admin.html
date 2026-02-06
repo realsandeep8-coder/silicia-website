@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel – Silicia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#0f172a;
+  --secondary:#64748b;
+  --border:#e5e7eb;
+  --bg:#f8fafc;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --warning:#f59e0b;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--primary);
+}
+
+.container{
+  max-width:1400px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:700;
+}
+
+.admin{
+  color:var(--secondary);
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.stat{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+}
+
+.stat h3{
+  font-size:14px;
+  color:var(--secondary);
+  margin-bottom:10px;
+}
+
+.stat strong{
+  font-size:26px;
+}
+
+/* SECTION */
+.section{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:24px;
+  margin-bottom:30px;
+}
+
+.section h2{
+  margin-bottom:20px;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:14px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+  font-size:14px;
+}
+
+th{
+  color:var(--secondary);
+  font-weight:600;
+}
+
+tr:last-child td{
+  border-bottom:none;
+}
+
+.badge{
+  padding:4px 10px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.badge.pending{ background:#fef3c7; color:#92400e; }
+.badge.approved{ background:#dcfce7; color:#166534; }
+.badge.rejected{ background:#fee2e2; color:#991b1b; }
+
+.btn{
+  padding:6px 14px;
+  border:none;
+  border-radius:20px;
+  font-size:12px;
+  cursor:pointer;
+  margin-right:6px;
+}
+
+.btn.approve{ background:var(--success); color:#fff; }
+.btn.reject{ background:var(--danger); color:#fff; }
+.btn.warn{ background:var(--warning); color:#fff; }
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .container{
+    padding:20px 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <div class="logo">Silicia Admin</div>
+  <div class="admin">Super Admin</div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <h3>Total Sellers</h3>
+    <strong>312</strong>
+  </div>
+  <div class="stat">
+    <h3>Verified Products</h3>
+    <strong>1,420</strong>
+  </div>
+  <div class="stat">
+    <h3>Orders Today</h3>
+    <strong>286</strong>
+  </div>
+  <div class="stat">
+    <h3>Disputes</h3>
+    <strong>4</strong>
+  </div>
+</div>
+
+<!-- SELLER APPROVAL -->
+<div class="section">
+  <h2>Seller Approvals</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Seller</th>
+        <th>Category</th>
+        <th>Trust</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Mobile Hub</td>
+        <td>Electronics</td>
+        <td>—</td>
+        <td><span class="badge pending">Pending</span></td>
+        <td>
+          <button class="btn approve" onclick="approve()">Approve</button>
+          <button class="btn reject" onclick="reject()">Reject</button>
+        </td>
+      </tr>
+      <tr>
+        <td>TechStore India</td>
+        <td>Electronics</td>
+        <td>96%</td>
+        <td><span class="badge approved">Approved</span></td>
+        <td>
+          <button class="btn warn" onclick="warn()">Flag</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PRODUCT VERIFICATION -->
+<div class="section">
+  <h2>Product Verification</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Seller</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Apple iPhone 15</td>
+        <td>Mobile Hub</td>
+        <td>Electronics</td>
+        <td><span class="badge pending">Pending</span></td>
+        <td>
+          <button class="btn approve" onclick="approve()">Verify</button>
+          <button class="btn reject" onclick="reject()">Reject</button>
+        </td>
+      </tr>
+      <tr>
+        <td>Samsung Galaxy S23</td>
+        <td>TechStore India</td>
+        <td>Electronics</td>
+        <td><span class="badge approved">Verified</span></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TRUST CONTROL -->
+<div class="section">
+  <h2>Trust Score Control</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Seller</th>
+        <th>On-time</th>
+        <th>Cancellations</th>
+        <th>Disputes</th>
+        <th>Trust</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TechStore India</td>
+        <td>96%</td>
+        <td>2%</td>
+        <td>Low</td>
+        <td><strong style="color:#16a34a;">96%</strong></td>
+      </tr>
+      <tr>
+        <td>Mobile Hub</td>
+        <td>82%</td>
+        <td>7%</td>
+        <td>Medium</td>
+        <td><strong style="color:#f59e0b;">84%</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<script>
+function approve(){
+  alert("Approved successfully (demo)");
+}
+function reject(){
+  alert("Rejected (demo)");
+}
+function warn(){
+  alert("Seller flagged for review (demo)");
+}
+</script>
+
+</body>
+</html>
