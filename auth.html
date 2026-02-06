@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login | Signup – Silicia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#0f172a;
+  --secondary:#64748b;
+  --border:#e5e7eb;
+  --bg:#f8fafc;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:linear-gradient(120deg,#f8fafc,#eef2ff);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.card{
+  width:100%;
+  max-width:420px;
+  background:#fff;
+  border-radius:20px;
+  border:1px solid var(--border);
+  padding:30px;
+  box-shadow:0 20px 40px rgba(0,0,0,.06);
+}
+
+.logo{
+  text-align:center;
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:var(--secondary);
+  margin-bottom:30px;
+}
+
+.tabs{
+  display:flex;
+  border:1px solid var(--border);
+  border-radius:30px;
+  overflow:hidden;
+  margin-bottom:25px;
+}
+
+.tab{
+  flex:1;
+  padding:12px;
+  text-align:center;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.tab.active{
+  background:var(--primary);
+  color:#fff;
+}
+
+.form{
+  display:none;
+}
+
+.form.active{
+  display:block;
+}
+
+.input{
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  font-size:14px;
+}
+
+.select{
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+}
+
+.btn{
+  width:100%;
+  padding:14px;
+  border-radius:30px;
+  border:none;
+  background:var(--primary);
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.note{
+  text-align:center;
+  font-size:12px;
+  color:var(--secondary);
+  margin-top:16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="logo">Silicia</div>
+  <div class="subtitle">Unified Marketplace Platform</div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('login')">Login</div>
+    <div class="tab" onclick="switchTab('signup')">Signup</div>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="form active" id="login">
+    <input class="input" placeholder="Email">
+    <input class="input" type="password" placeholder="Password">
+
+    <select class="select" id="loginRole">
+      <option value="buyer">Buyer</option>
+      <option value="seller">Seller</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <button class="btn" onclick="login()">Login</button>
+  </div>
+
+  <!-- SIGNUP -->
+  <div class="form" id="signup">
+    <input class="input" placeholder="Full Name">
+    <input class="input" placeholder="Email">
+    <input class="input" type="password" placeholder="Password">
+
+    <select class="select">
+      <option>Buyer</option>
+      <option>Seller</option>
+    </select>
+
+    <button class="btn" onclick="signup()">Create Account</button>
+  </div>
+
+  <div class="note">
+    Secure · Trust-based · Silicia Platform
+  </div>
+
+</div>
+
+<script>
+function switchTab(tab){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.form').forEach(f=>f.classList.remove('active'));
+
+  if(tab==='login'){
+    document.querySelectorAll('.tab')[0].classList.add('active');
+    document.getElementById('login').classList.add('active');
+  }else{
+    document.querySelectorAll('.tab')[1].classList.add('active');
+    document.getElementById('signup').classList.add('active');
+  }
+}
+
+function login(){
+  const role = document.getElementById('loginRole').value;
+
+  if(role==='buyer'){
+    alert("Login success → Buyer Dashboard (demo)");
+    // location.href = "index.html";
+  }
+  if(role==='seller'){
+    alert("Login success → Seller Dashboard (demo)");
+    // location.href = "seller.html";
+  }
+  if(role==='admin'){
+    alert("Login success → Admin Panel (demo)");
+    // location.href = "admin.html";
+  }
+}
+
+function signup(){
+  alert("Account created successfully (demo)");
+}
+</script>
+
+</body>
+</html>
