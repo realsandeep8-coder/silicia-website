@@ -185,7 +185,8 @@ footer {
       Silicia Nexus is not a website.  
       It’s a digital universe where products, services and ideas collide.
     </p>
-    <button>Enter Marketplace</button>
+    <a href="/market.html" class="cta-btn">Enter Marketplace</a>
+
   </div>
 </section>
 
