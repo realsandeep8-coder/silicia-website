@@ -159,7 +159,7 @@ footer{
     <input id="pass" type="password" placeholder="Password">
     
     <div class="actions">
-      <a href="market.html" class="btn">Enter Marketplace</a>
+      <a href="#" class="btn"  onclic="login()">Enter Marketplace</a>
       <a href="login.html" class="link">Go to full login →</a>
     </div>
      
@@ -246,12 +246,37 @@ function pay(){
   cart.forEach(c=>{
     orders.innerHTML+=`<tr><td>${c.name}</td><td>$${c.price}</td><td>Paid (Demo)</td></tr>`;
   });
-  cart=[];document.getElementById("cartCount").innerText=0;
+  if (document.getElementById("cartCount")) {cart = [];
+   document.getElementById("cartcount").innerText =0;
+}                                            
   alert("Payment successful (UI demo)");
   closeAll();
 }
 function closeAll(){
   document.querySelectorAll(".modal").forEach(m=>m.style.display="none");
+}
+</script>
+
+  <script>
+  function closeAll() {
+    document.querySelectorAll(".modal")
+      ,forEach(m => m.style.display = "none");
+  }
+    
+function login() {
+  const user = document.getElementById("user").value;
+  const pass = document.getElementById("pass").value;
+
+  if (user === "" || pass === "") {
+    alert("Enter username & password");
+    return;
+  }
+
+  // Temporary auth (UI level)
+  localStorage.setItem("silicia_auth", "true");
+
+  // Redirect
+  window.location.href = "market.html";
 }
 </script>
 </body>
