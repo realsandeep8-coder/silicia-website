@@ -139,7 +139,7 @@ footer{
 
 <!-- DASHBOARD (DEMO) -->
 <section class="container dash" id="dashboard">
-  <span class="badge">User Dashboard (Demo)</span>
+  <span class="badge">User Dashboard (Real)</span>
   <table class="table">
     <thead><tr><th>Item</th><th>Price</th><th>Status</th></tr></thead>
     <tbody id="orders"></tbody>
@@ -156,10 +156,10 @@ footer{
     <input id="pass" placeholder="Password">
     <div class="actions">
       <a href="/market.html">Enter Marketplace</a>
-      <a href="#market">Market</a>
-<a href="#sell">Sell</a>
-<a href="#buy">Buy</a>
-<a href="#login">Login</a>
+      <a href="/login.html">Login</a>
+<a href="/sell">Sell</a>
+<a href="/buy">Buy</a>
+<a href="/login">Login</a>
      <button class="btn" onclick="closeAll()">Close</button>
     </div>
   </div>
@@ -168,11 +168,12 @@ footer{
 <!-- CART -->
 <div class="modal" id="cart">
   <div class="box">
-    <h3>Checkout (Demo)</h3>
+    <h3>Checkout (Real)</h3>
     <div id="cartItems"></div>
     <select id="pay">
       <option>Razorpay (UI Ready)</option>
-      <option>Stripe (UI Ready)</option>
+      <option>Phonepay (UI Ready)</option>
+      <option>Stripe (UI Ready)</option> 
     </select>
     <div class="actions">
       <button class="btn primary" onclick="pay()">Pay</button>
