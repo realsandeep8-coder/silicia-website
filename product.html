@@ -1,1 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>iPhone 15 – Compare Sellers | Silicia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compare sellers for iPhone 15 by price, delivery and trust score on Silicia. One product. Total transparency.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary:#0f172a;
+  --secondary:#64748b;
+  --border:#e5e7eb;
+  --bg:#ffffff;
+  --trust:#16a34a;
+  --warning:#f59e0b;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body {
+  background:var(--bg);
+  color:var(--primary);
+  line-height:1.6;
+}
+
+.container {
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+}
+
+header {
+  height:80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo {
+  font-size:26px;
+  font-weight:700;
+}
+
+nav a {
+  margin-left:30px;
+  color:var(--secondary);
+  font-weight:500;
+  text-decoration:none;
+}
+
+nav a:hover {
+  color:var(--primary);
+}
+
+/* PRODUCT TOP */
+.product-top {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  padding:60px 0;
+}
+
+.product-image {
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.product-image img {
+  max-width:100%;
+  height:auto;
+}
+
+.product-info h1 {
+  font-size:38px;
+  margin-bottom:15px;
+}
+
+.product-info p {
+  color:var(--secondary);
+  margin-bottom:25px;
+}
+
+.badges span {
+  display:inline-block;
+  border:1px solid var(--border);
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:14px;
+  margin-right:10px;
+}
+
+/* SELLER TABLE */
+.section {
+  padding:60px 0;
+}
+
+.section-title {
+  font-size:32px;
+  font-weight:700;
+  margin-bottom:30px;
+}
+
+.table {
+  width:100%;
+  border-collapse:collapse;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+
+.table th,
+.table td {
+  padding:18px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+}
+
+.table th {
+  background:#f8fafc;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  color:var(--secondary);
+}
+
+.table tr:last-child td {
+  border-bottom:none;
+}
+
+.trust {
+  color:var(--trust);
+  font-weight:600;
+}
+
+.medium {
+  color:var(--warning);
+  font-weight:600;
+}
+
+.buy-btn {
+  padding:10px 20px;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.buy-btn:hover {
+  opacity:0.9;
+}
+
+/* TRUST EXPLAIN */
+.trust-box {
+  max-width:800px;
+  margin:auto;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:30px;
+}
+
+.trust-box h3 {
+  margin-bottom:15px;
+}
+
+.trust-list {
+  list-style:none;
+}
+
+.trust-list li {
+  margin-bottom:10px;
+  color:var(--secondary);
+}
+
+/* FOOTER */
+footer {
+  border-top:1px solid var(--border);
+  padding:40px 0;
+  text-align:center;
+  color:var(--secondary);
+  font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+  .product-top {
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <div class="logo">Silicia</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Sell on Silicia</a>
+  </nav>
+</header>
+
+<!-- PRODUCT INFO -->
+<section class="product-top">
+  <div class="product-image">
+    <img src="https://dummyimage.com/400x400/eeeeee/000000&text=iPhone+15" alt="iPhone 15">
+  </div>
+
+  <div class="product-info">
+    <h1>Apple iPhone 15 (128 GB)</h1>
+    <p>6.1-inch display · A16 Bionic · Dual Camera · iOS</p>
+
+    <div class="badges">
+      <span>Verified Product</span>
+      <span>No Sponsored Sellers</span>
+    </div>
+  </div>
+</section>
+
+<!-- SELLER COMPARISON -->
+<section class="section">
+  <h2 class="section-title">Compare sellers</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Seller</th>
+        <th>Price</th>
+        <th>Delivery</th>
+        <th>Trust Score</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TechStore India</td>
+        <td>₹69,999</td>
+        <td>2 days</td>
+        <td class="trust">96%</td>
+        <td><button class="buy-btn">Buy</button></td>
+      </tr>
+      <tr>
+        <td>Mobile Hub</td>
+        <td>₹69,499</td>
+        <td>4 days</td>
+        <td class="medium">88%</td>
+        <td><button class="buy-btn">Buy</button></td>
+      </tr>
+      <tr>
+        <td>ElectroWorld</td>
+        <td>₹68,999</td>
+        <td>6 days</td>
+        <td class="medium">84%</td>
+        <td><button class="buy-btn">Buy</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- TRUST SYSTEM -->
+<section class="section">
+  <div class="trust-box">
+    <h3>How trust score works</h3>
+    <ul class="trust-list">
+      <li>✔ On-time delivery history</li>
+      <li>✔ Cancellation rate</li>
+      <li>✔ Customer dispute records</li>
+      <li>✔ Return honesty</li>
+    </ul>
+    <p style="margin-top:15px;color:#64748b;">
+      Trust scores are calculated from real transactions — not reviews.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Silicia · One product. Many sellers. Total transparency.
+</footer>
+
+</div>
+
+</body>
+</html>
 
