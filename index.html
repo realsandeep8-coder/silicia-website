@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Silicia™ | Luxury Global Marketplace</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06060b; --panel:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.14);
+  --n1:#7f5cff; --n2:#00ffe0;
+  --txt:#f5f6fa; --mut:#9aa0a6;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter}
+body{
+  background:radial-gradient(circle at top,#0b0b22,#06060b 65%);
+  color:var(--txt); overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.container{width:92%;max-width:1200px;margin:auto}
+section{padding:110px 0}
+
+/* NAV */
+nav{
+  position:fixed;top:0;width:100%;z-index:999;
+  backdrop-filter:blur(14px);
+  background:rgba(6,6,11,.6);
+  border-bottom:1px solid var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.logo{
+  font-weight:800;font-size:22px;
+  background:linear-gradient(90deg,var(--n1),var(--n2));
+  -webkit-background-clip:text;color:transparent;
+}
+.nav .right{display:flex;gap:10px}
+.btn{
+  padding:10px 18px;border-radius:999px;border:1px solid var(--border);
+  background:transparent;color:var(--txt);cursor:pointer
+}
+.btn.primary{
+  background:linear-gradient(90deg,var(--n1),var(--n2));
+  color:#000;border:none;font-weight:600
+}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center}
+.hero h1{
+  font-size:clamp(2.6rem,6vw,4.8rem);
+  font-weight:800;line-height:1.05
+}
+.hero h1 span{
+  background:linear-gradient(90deg,var(--n1),var(--n2));
+  -webkit-background-clip:text;color:transparent
+}
+.hero p{max-width:560px;margin:18px 0;color:var(--mut)}
+.search{
+  margin-top:28px;width:100%;max-width:420px;
+  padding:14px 22px;border-radius:999px;
+  background:var(--panel);border:1px solid var(--border);color:#fff
+}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+.card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:22px;padding:22px;transition:.35s
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 40px rgba(127,92,255,.22)
+}
+.card h3{margin-bottom:6px}
+.card small{color:var(--mut)}
+.card .row{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+
+/* SECTIONS */
+.badge{
+  display:inline-block;margin-bottom:12px;
+  padding:6px 12px;border-radius:999px;
+  background:rgba(127,92,255,.18);border:1px solid var(--border)
+}
+
+/* MODALS */
+.modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.6);z-index:1000
+}
+.box{
+  width:92%;max-width:380px;background:#0b0b18;
+  border:1px solid var(--border);border-radius:22px;padding:26px
+}
+.box h3{margin-bottom:10px}
+.box input, .box select{
+  width:100%;margin-top:10px;padding:12px;border-radius:12px;border:none
+}
+.box .actions{display:flex;gap:10px;margin-top:16px}
+
+/* DASH */
+.dash{display:none}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:10px;border-bottom:1px solid var(--border);text-align:left;color:var(--mut)}
+
+footer{
+  border-top:1px solid var(--border);padding:36px 0;text-align:center;color:var(--mut)
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav">
+    <div class="logo">Silicia™</div>
+    <div class="right">
+      <button class="btn" onclick="openAuth()">Login</button>
+      <button class="btn primary" onclick="openCart()">Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero container">
+  <div>
+    <span class="badge">Luxury • Physical + Digital</span>
+    <h1>Buy & Sell<br><span>Anything Premium</span></h1>
+    <p>Silicia is a future-ready luxury marketplace for physical products, digital goods & innovation.</p>
+    <input class="search" placeholder="AI search products…" onkeyup="searchProducts(this.value)">
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="container">
+  <span class="badge">Marketplace</span>
+  <div class="grid" id="products"></div>
+</section>
+
+<!-- DASHBOARD (DEMO) -->
+<section class="container dash" id="dashboard">
+  <span class="badge">User Dashboard (Demo)</span>
+  <table class="table">
+    <thead><tr><th>Item</th><th>Price</th><th>Status</th></tr></thead>
+    <tbody id="orders"></tbody>
+  </table>
+</section>
+
+<footer>© 2026 Silicia™ — Global Luxury Commerce</footer>
+
+<!-- AUTH -->
+<div class="modal" id="auth">
+  <div class="box">
+    <h3>Login / Signup</h3>
+    <input id="user" placeholder="Username">
+    <input id="pass" placeholder="Password">
+    <div class="actions">
+      <a href="/market.html">Enter Marketplace</a>
+      <a href="#market">Market</a>
+<a href="#sell">Sell</a>
+<a href="#buy">Buy</a>
+<a href="#login">Login</a>
+     <button class="btn" onclick="closeAll()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="modal" id="cart">
+  <div class="box">
+    <h3>Checkout (Demo)</h3>
+    <div id="cartItems"></div>
+    <select id="pay">
+      <option>Razorpay (UI Ready)</option>
+      <option>Stripe (UI Ready)</option>
+    </select>
+    <div class="actions">
+      <button class="btn primary" onclick="pay()">Pay</button>
+      <button class="btn" onclick="closeAll()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* DATA */
+const products=[
+ {id:1,name:"Luxury Watch",price:2999,type:"physical"},
+ {id:2,name:"Premium Shoes",price:499,type:"physical"},
+ {id:3,name:"Digital NFT Art",price:1200,type:"digital"},
+ {id:4,name:"AI Course",price:199,type:"digital"},
+ {id:5,name:"Hardware Wallet",price:899,type:"physical"}
+];
+let cart=[];
+
+/* RENDER */
+const grid=document.getElementById("products");
+function render(list){
+  grid.innerHTML="";
+  list.forEach(p=>{
+    grid.innerHTML+=`
+      <div class="card">
+        <h3>${p.name}</h3>
+        <small>${p.type.toUpperCase()}</small>
+        <div class="row">
+          <strong>$${p.price}</strong>
+          <button class="btn primary" onclick="add(${p.id})">Buy</button>
+        </div>
+      </div>`;
+  });
+}
+render(products);
+
+/* SEARCH (AI-LIKE FILTER) */
+function searchProducts(q){
+  q=q.toLowerCase();
+  render(products.filter(p=>p.name.toLowerCase().includes(q)));
+}
+
+/* CART */
+function add(id){
+  const p=products.find(x=>x.id===id);
+  cart.push(p);
+  document.getElementById("cartCount").innerText=cart.length;
+}
+function openCart(){
+  document.getElementById("cart").style.display="flex";
+  document.getElementById("cartItems").innerHTML=
+    cart.map(c=>`<p>${c.name} — $${c.price}</p>`).join("") || "<p>No items</p>";
+}
+
+/* AUTH */
+function openAuth(){document.getElementById("auth").style.display="flex";}
+function login(){
+  localStorage.setItem("user",document.getElementById("user").value||"guest");
+  alert("Logged in (demo)");
+  document.getElementById("dashboard").style.display="block";
+  closeAll();
+}
+
+/* PAYMENT (DEMO FLOW) */
+function pay(){
+  if(!cart.length){alert("Cart empty");return;}
+  const orders=document.getElementById("orders");
+  cart.forEach(c=>{
+    orders.innerHTML+=`<tr><td>${c.name}</td><td>$${c.price}</td><td>Paid (Demo)</td></tr>`;
+  });
+  cart=[];document.getElementById("cartCount").innerText=0;
+  alert("Payment successful (UI demo)");
+  closeAll();
+}
+function closeAll(){
+  document.querySelectorAll(".modal").forEach(m=>m.style.display="none");
+}
+</script>
+</body>
+</html>
