@@ -1,1 +1,42 @@
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<button onclick="payNow()">Pay Now</button>
+
+<script>
+async function payNow() {
+  const res = await fetch("http://localhost:5000/create-order", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ amount: 499 })
+  });
+
+  const order = await res.json();
+
+  const options = {
+    key: "RAZORPAY_KEY_ID",
+    amount: order.amount,
+    currency: "INR",
+    name: "Silicia™",
+    description: "Marketplace Order",
+    order_id: order.id,
+    handler: async function (response) {
+      const verify = await fetch("http://localhost:5000/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(response)
+      });
+
+      const result = await verify.json();
+      if (result.success) {
+        alert("Payment Successful ✅");
+      } else {
+        alert("Payment Failed ❌");
+      }
+    }
+  };
+
+  const rzp = new Razorpay(options);
+  rzp.open();
+}
+</script>
 
